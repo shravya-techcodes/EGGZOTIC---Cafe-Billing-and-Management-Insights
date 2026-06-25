@@ -1,0 +1,1127 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #cbece9e0;
+    display: flex;
+    height: 100vh;
+}
+/* Navbar */
+.navbar{
+    background: #00008B;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 170px 0px 60px;
+}
+.nav-logo{
+    height: 40px;
+    width: 40px;
+    background-image: url(logo.jpeg);
+    background-size: cover;
+    background-position: 10%;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 40%;
+}
+.nav{
+    margin-left: 30px;
+}
+.title{
+    font-size: x-large;
+    font-weight: bold;
+    color: yellow;
+    margin-right: auto;
+}
+.settings{
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    gap: 80px;
+    
+}
+.settings a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 10px;
+}
+a:hover, a:active{
+    color: yellow;
+    font-weight: bold;
+}
+
+
+/*Siderbar Section*/
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #eaf5f2;
+    padding: 20px;
+    margin: 15px;
+    position: fixed;
+    top: 60px; /* IMPORTANT: pushes it below navbar */
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo */
+.logo h2 {
+    color: #4CAF8F;
+    font-weight: 600;
+}
+
+.logo span {
+    color: #2c3e50;
+}
+
+
+/* Menu */
+.menu, .bottom {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li a{
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.menu li a:hover, .bottom li a:hover{
+    background: #ffffff;
+    color: #4CAF8F;
+    font-weight: 600;
+}
+
+.menu li a:active, .bottom li a:active{
+    background: #ffffff;
+    color: #4CAF8F;
+    font-weight: 600;
+}
+/* Bottom section */
+.bottom li a{
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    color: #555;
+    text-decoration: none;
+}
+/*.middleContainer{
+    top: 50px;
+    left: 300px;
+    position: fixed;
+}*/
+/*cards*/
+.overview{
+    top: 60px;
+    position: fixed;
+    left: 300px;
+    margin-left: 25px;
+    width: 100%;
+}
+.cards-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    top: 60px;
+    position: fixed;
+    left: 300px;
+    margin-left: 60px; /* adjust based on sidebar width */
+    margin-top: 80px;   /* adjust based on navbar height */
+}
+
+.card {
+    flex: 1;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    width: 250px;
+}
+
+.card:hover,
+.summary-card:hover {
+    transform: translateY(-12px);
+}
+
+/* Card Title */
+.card h4 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Number */
+.card h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+/* Icon */
+.icon {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+/* Individual card colors */
+
+.sales {
+    background: #e7f0fb;
+    color: #2b6cb0;
+}
+
+.profit {
+    background: #e6f4ea;
+    color: #2f855a;
+}
+
+.orders {
+    background: #fde8e8;
+    color: #c05621;
+}
+
+.customers {
+    background: #f3e8ff;
+    color: #805ad5;
+}
+
+/* Recent orders */
+.sub-container{
+    /*background: #00008B;*/
+    display: flex;
+    top: 330px;
+    left: 300px;
+    position: fixed;
+    gap: 30px;
+    margin-left: 60px;
+}
+.container1{
+    /*background: #4CAF8F;*/
+    /*width: 550px;*/
+    /*height: 330px;*/
+    background: #eaf5f2;
+    border-radius: 15px;
+    padding: 0 20px 20px 20px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.containerScroll{
+    max-height: 260px;
+    overflow-y: auto;
+}
+.container1 h2
+.container2 h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #c0dcff;
+}
+
+thead th {
+    text-align: left;
+    padding: 12px;
+    font-weight: 600;
+    color: #555;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+tbody td {
+    padding: 12px;
+    color: #444;
+}
+
+/* Rupees column highlight */
+tbody td:last-child {
+    font-weight: bold;
+}
+.container2{
+    /*background: #c05621;
+    height: 320px;*/
+    width: 350px;
+    background: #eaf5f2;
+    padding: 0 20px 20px 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/*.container2 h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Table Styling */
+/*table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background:  #c0dcff;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+    color: #555;
+}*/
+
+.top-selling td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Align quantity to right */
+.top-selling td:last-child,
+.top-selling th:last-child {
+    text-align: right;
+}
+
+/* Hover effect 
+.top-selling tr:hover {
+    background: #f9f9f9;
+}
+
+/* Remove last border */
+.top-selling tr:last-child td {
+    border-bottom: none;
+}
+/*---------------------------- modules-------------------------------------------*/
+/*------------------------------MENU MODULE-----------------------------*/
+.menudiv1{
+    width: 70rem;
+    top: 60px;
+    left: 300px;
+    position: fixed;
+    margin: 25px;
+    height: 100vh;
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+}
+.menudiv2{
+    width: 70rem;
+    top: 60px;
+    left: 300px;
+    position: fixed;
+    margin: 25px;
+    height: 30%;
+}
+.menudiv3{
+    width: 70rem;
+    top: 300px;
+    left: 300px;
+    position: fixed;
+    margin: 25px;
+    margin-top: 35px;
+}
+
+
+
+/* Header */
+.page-header h2 {
+    margin: 0px;
+    text-align: center;
+}
+
+.page-header p, .expense-title p {
+    color: gray;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/*form*/
+.formdiv {
+    background-color: #eaf5f2;
+    padding: 5px 20px 25px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Form */
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group input,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 210px;
+}
+
+/*.btn-group {
+    justify-content: end;
+}*/
+
+.addmenu {
+    background: linear-gradient(to right, #62cff4, #2c67f2);
+    color: white;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* Table Header */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-controls {
+    display: flex;
+    gap: 50px;
+    margin-right: 40px;
+}
+.subControll{
+    display: flex;
+    border-radius: 25px;
+    background-color: #62cff4;
+}
+
+.table-controls input,
+.table-controls select {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Table */
+/*table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+/* Status
+.status {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.available {
+    background: #d4edda;
+    color: green;
+}
+
+.out {
+    background: #f8d7da;
+    color: red;
+}*/
+
+/* Buttons */
+button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background: linear-gradient(to right, #62cff4, #2c67f2);
+}
+
+/*.edit {
+    background: #e8d4fd;
+    color: #805ad5;
+    border: 1px solid #805ad5;
+}*/
+
+.delete {
+    background: #fde8e8;
+    color: #c05621;
+    border: 1px solid #c05621;
+}
+/*------------------------------BILLING MODULE---------------------------------------*/
+
+.containerBill{
+    top: 60px;
+    left: 300px;
+    position: fixed;
+    width: 78%;
+    height: 100vh;
+    padding: 5px;
+    margin-left: 10px;
+}
+/*TOP BAR SEC OF BILL MODULE*/
+.billing-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-controls{
+    display: flex;
+    gap: 15px;
+}
+
+.left-controls input,
+.left-controls select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 220px;
+}
+.date-time{
+    font-weight: bold;
+    font-size: 18px;
+}
+/*.new-order-btn{
+    padding: 10px 18px;
+    border: none;
+    background: #5b3df5;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}*/
+
+/* MAIN */
+.billing-container{
+    display: flex;
+    gap: 20px;
+}
+
+/* ----------------menu items of bill module-------*/
+
+.menu-section{
+    flex: none;
+    background: #eaf5f2;
+    padding: 0 25px 25px 25px;
+    border-radius: 15px;
+    width: 45%;
+}
+
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.itemenu-card{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+}
+
+.itemenu-card p{
+    color: gray;
+    font-size: 12px;
+}
+
+.itemenu-card button{
+    padding: 8px 18px;
+    border: 1px solid #5b3df5;
+    background: white;
+    color: #5b3df5;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+h4,h5{
+    margin: 10px 6px 0px 6px;
+}
+/*------------------bill-----------------------------------------*/
+.bill-section{
+    flex: none;
+    background: #eaf5f2;
+    padding: 0 25px 0 25px;
+    border-radius: 15px;
+    height: 80%;
+    width: 45%;
+}
+.billScroll{
+    max-height: 260px;
+    overflow-y: auto;
+}
+/*.bill-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/*.clear-btn{
+    border: none;
+    background: none;
+    color: red;
+    cursor: pointer;
+}
+
+/* TABLE 
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background: #f5f5f5;
+}
+
+th, td{
+    padding: 12px;
+    text-align: center;
+}*/
+
+.empty-cart{ /*------ when cart is empty the text will display----------*/
+    color: gray;
+    text-align: center;
+    vertical-align: middle;
+}
+/* TOTALS */
+.bill-total{
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.total-row,
+.grand-total{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.grand-total{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* BUTTONS */
+
+.bill-buttons{
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.clear-cart{
+    flex: 1;
+    border: 1px solid red;
+    color: red;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.generate-btn{
+    flex: 1;
+    padding: 12px 0px 12px 0px;
+    border: none;
+    background: #5b3df5;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+/*----------------------- all this created inside the js -------------*/
+.remove-btn{
+    border: none;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.qty-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.qty-box button{
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #5b3df5;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*------------------------- Recipt Preview--------------*/
+.receipt-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.receipt-content{
+    background: white;
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.receipt-date-time{
+    display: flex;
+    gap: 100px;
+    font-size: 14px;
+    margin: 5px 0;
+}
+.receipt-content h2{
+    text-align: center;
+}
+.billprintScroll{
+    max-height: 250px;
+    overflow-y: auto;
+}
+.receipt-total{
+    margin-top: 15px;
+    position: static;
+}
+.thank-you{
+    text-align: center;
+    margin: 20px 0;
+}
+.billPrint{
+    margin-right: 200px;
+}
+/*@media print {
+
+    body *{
+        visibility: hidden;
+    }
+
+    .receipt-content,
+    .receipt-content *{
+        visibility: visible;
+    }
+
+    .receipt-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .billprintScroll{
+        max-height: none !important;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .receipt-total{
+        position: static !important;
+        margin-top: 20px;
+    }
+
+    .billPrint,
+    #close-receipt-btn{
+        display: none;
+    }
+
+    .receipt-modal{
+        position: static;
+        display: block;
+        background: white;
+    }
+} */
+ @media print {
+
+    body *{
+        visibility: hidden;
+    }
+
+    .receipt-content,
+    .receipt-content *{
+        visibility: visible;
+    }
+
+    .receipt-modal{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: white;
+        display: block;
+    }
+
+    .receipt-content{
+        width: 80mm;
+        padding: 5mm;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 12px;
+    }
+
+    .billprintScroll{
+        max-height: none !important;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .receipt-table{
+        width: 100%;
+    }
+
+    .receipt-table th,
+    .receipt-table td{
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .receipt-total{
+        margin-top: 10px;
+    }
+
+    .billPrint,
+    #close-receipt-btn{
+        display: none;
+    }
+
+    hr{
+        border: 1px dashed black;
+    }
+
+    @page{
+        size: 80mm auto;
+        margin: 0;
+    }
+}   
+/*.receipt-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.receipt-table th,
+.receipt-table td{
+    text-align: center;
+    padding: 5px;
+}
+
+.receipt-table th{
+    border-bottom: 1px solid #000;
+}
+/*---------------------------------------------- EXPENSE MODULE------------------------------------------*/
+.containerExpense{
+    top: 60px;
+    left: 300px;
+    width: 80%;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.subExpense1{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    width: 90%;
+    padding: 10px 0px 0px 20px;
+}
+.subExpense2{
+    background-color: #eaf5f2;
+    height: 25%;
+    padding: 10px 20px 0px 20px;
+    width: 90%;
+    border-radius: 10px;
+}
+.subExpense3{
+    background-color: #eaf5f2;
+    height: 80%;
+    width: 90%;
+    border-radius: 10px;
+    padding: 0px 20px 0px 20px;
+}
+/*---------------- SUMMARY CARDS of expense*/
+.summary-cards{
+    display: flex;
+    gap: 20px;
+    margin-right: 15px;
+}
+
+.summary-card{
+    width: 220px;
+    border-radius: 14px;
+    padding: 8px;
+    height: 70px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/*.card-icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.green .card-icon{
+    background: #e7f8eb;
+}
+
+.orange .card-icon{
+    background: #fff1df;
+}
+
+.blue .card-icon{
+    background: #e7f3ff;
+}
+
+.card-info span{
+    color: #666;
+    font-size: 15px;
+}
+
+.card-info h2{
+    margin-top: 8px;
+    font-size: 32px;
+}
+
+.green h2{
+    color: #18a44c;
+}
+
+.orange h2{
+    color: #f08a00;
+}
+
+.blue h2{
+    color: #1b84ff;
+}*/
+/*------------------Expense module form---------------*/
+.expense-form{
+    display: flex;
+    gap: 2px;
+    align-items: end;
+}
+
+/*.form-group{
+    display: flex;
+    flex-direction: column;
+}*/
+
+.form-group label{
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/*.form-group input{
+    width: 250px;
+    padding: 14px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    font-size: 15px;
+}*/
+
+.form-buttons{
+    display: flex;
+    gap: 10px;
+    height: 35px;
+}
+
+/*.save-btn{
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cancel-btn{
+    background: black;
+    border: 1px solid #d1d1d1;
+    padding: 14px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+/*------------------ Expense table----------*/
+.table-top{
+    display: flex;
+    gap: 550px;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.tableExpenseScroll{
+    max-height: 200px;
+    overflow-y: auto;
+}
+/* TOTAL */
+.total-expense{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
+.total-expense h3{
+    font-size: 28px;
+}
+
+.total-expense span{
+    color: red;
+}
+/*-------------------Sales Module-------------------*/
+.salesmainDiv{
+    position: fixed;
+    top: 80px;
+    left: 300px;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+/* TOP SECTION 
+
+.top-sectionSales{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eaf5f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 20px 0px 20px;
+}
+.period-box{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.period-box label{
+    font-size: 18px;
+    font-weight: bold;
+}
+.period-box select{
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+.date-box input{
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}*/
+/* CHART */
+.chart-container{
+    background: #eaf5f2;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    height: 500px;
+    width: 60%;
+    position: relative;
+    margin-left: 60px;
+}
+
+/*.chart-header{
+    margin-bottom: 0px;
+    padding: 0px;
+}*/
+
+#salesChart{
+    width: 30%;
+    height: 10%;
+    margin-bottom: 70px;
+}
+.analyticsSection{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+/* RIGHT SIDE CARDS */
+.insight-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.insight-card{
+    background: #eaf5f2;
+    padding: 5px 5px 0px 5px;
+    border-radius: 10px;
+    width: 120%;
+    height: 29%;
+    text-align: center;
+}
+/*.insight-card h3{
+    margin-bottom: 10px;
+}*/
+.sales-amount{
+    font-size: 20px;
+    font-weight: bold;
+}
+.success-msg{
+    color: green;
+    font-weight: 500;
+}
+.warning-msg{
+    color: red;
+    font-weight: 500;
+}

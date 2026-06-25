@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #E9F8FF, #90B2D8, #C1E3FF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Login Box */
+.login-box {
+    background: #fff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+
+.logo span {
+    color: orange;
+}
+
+.logo p {
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+    text-align: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Input */
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    /*margin-left: 10px;*/
+}
+
+/* Button */
+.login-btn {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0px 15px 0px;
+    background: linear-gradient(to right, #62cff4, #2c67f2);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    opacity: 0.7;
+}
+
+/* Error */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+}

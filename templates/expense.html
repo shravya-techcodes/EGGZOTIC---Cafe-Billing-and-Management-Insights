@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block title %}Eggzotic-Expenses{% endblock %}
+{% block content %}
+
+<div class="containerExpense">
+    <!---top header-->
+    <div class="subExpense1">
+        <div class="expense-title">
+            <h2>Expense Log</h2>
+            <p>Track and manage all your expenses</p>
+            <hr>
+        </div>
+
+        <div class="summary-cards">
+
+            <div class="summary-card sales">
+                <div class="icon"><i class="fa-solid fa-filter-circle-dollar"></i></div>
+
+                <div class="card-info">
+                    <h4>Today's Expense</h4>
+                    <h4>₹ {{ today_expense }}</h4>
+                </div>
+            </div>
+
+            <div class="summary-card profit">
+                <div class="icon"><i class="fa-solid fa-calendar-days"></i></div>
+
+                <div class="card-info">
+                    <h4>Monthly Expense</h4>
+                    <h4>₹ {{ month_expense }}</h4>
+                </div>
+            </div>
+
+            <div class="summary-card orders">
+                <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+
+                <div class="card-info">
+                    <h4>Yearly Expense</h4>
+                    <h4>₹ {{ year_expense }}</h4>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!---Middle form section------>
+    <div class="subExpense2">
+        <h2 style="margin: 5px 0px 15px 0px;">Add Expense</h2>
+        <form class="expense-form" method="POST">
+
+            <div class="form-group">
+                <label>Expense Item</label>
+                <input type="text" name="item_name" placeholder="Enter item name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Amount (₹)</label>
+                <input type="number" name="amount" placeholder="Enter amount" step="0.01" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" name="expense_date" required>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="save-btn">Save Expense</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="subExpense3">
+        <div class="table-top">
+            <h2>All Expenses</h2>
+            <form method="GET">
+
+                <select name="filter" onchange="this.form.submit()">
+                    <option value="all" {% if request.args.get('filter') == 'all' %} selected {% endif %}>All Dates</option>
+                    <option value="today" {% if request.args.get('filter') == 'today' %} selected {% endif %}> Today</option>
+                    <option value="month" {% if request.args.get('filter') == 'month' %} selected {% endif %}> This Month</option>
+                    <option value="year" {% if request.args.get('filter') == 'year' %} selected {% endif %}> This Year</option>
+                </select>
+
+            </form>
+        </div>
+
+        <div class="tableExpenseScroll">
+        <table>
+            <thead>
+                <tr>
+                    <!--<th>ID</th>-->
+                    <th>Item Name</th>
+                    <th>Date</th>
+                    <th>Amount (₹)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <!---<tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Eggs</td>
+                    <td>₹ 500.00</td>
+                    <td>01/05/2026</td>
+                    <td class="action-buttons">
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Milk</td>
+                    <td>₹ 300.00</td>
+                    <td>01/05/2026</td>
+                    <td class="action-buttons">
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Bread</td>
+                    <td>₹ 150.00</td>
+                    <td>01/05/2026</td>
+                    <td class="action-buttons">
+                        --<button class="edit-btn">Edit</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>-->
+            <tbody>
+
+                {% for expense in expenses %}
+                <tr>
+                    <!--<td>{{ expense.id }}</td>-->
+                    <td>{{ expense.item_name }}</td>
+                    <td>{{ expense.expense_date }}</td>
+                    <td>₹ {{ expense.amount }}</td>
+
+                    <td class="action-buttons">
+                        <a href="/delete_expense/{{ expense.id }}"
+                        onclick="return confirm('Are you sure you want to delete this item?')">
+                        <button class="delete">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        </div>
+        <div class="total-expense">
+            <h3>Total Expense: <span>₹ {{ total_expense }}</span></h3>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Eggzotic{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="static/logo.jpeg">
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav">
+            <div class="nav-logo"></div>
+        </div>
+        <div class="title nav">EGGZOTIC</div>
+        <div class="settings">
+            <!---<a href="#"><i class="fa-solid fa-gears"></i>SETTINGS</a>-->
+            <a href="{{url_for('login.logout')}}"><i class="fa-solid fa-user"></i>LOGOUT</a>
+        </div>
+    </div>
+    <div class="sidebar">
+    <div class="logo">
+        <h2>Cafe<span>Admin</span></h2>
+        <hr>
+    </div>
+
+    <ul class="menu">
+        <li><a href="{{ url_for('dashboard.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="{{ url_for('menu.menu') }}"><i class="fas fa-utensils"></i> Menu & Pricing</a></li>
+        <li><a href="{{ url_for('billing.billing') }}"><i class="fas fa-file-invoice"></i>Billing</a></li>
+        <li><a href="{{ url_for('expense.expense') }}"><i class="fa-solid fa-money-bill-trend-up"></i>Expense Log</a></li>
+        <li><a href="{{ url_for('sales.sales') }}"><i class="fa-solid fa-chart-simple"></i>Sales Analytics</a></li>
+        <!--<li><a href="#"><i class="fas fa-users"></i> Customer Insights</a></li>-->
+    </ul>
+
+    <div class="bottom">
+        <hr>
+        <!--<li><a href="#"><i class="fas fa-robot"></i> Eggzotic Bot</a></li>-->
+    </div>
+    </div>
+    <div class="middleContainer">
+        {% block content %}{% endblock %}
+    </div>
+    {% block extra_js %}{% endblock %}
+</body>

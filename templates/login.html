@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eggzotic-Login</title>
+    <link rel="icon" type="image/jpeg" href="static/logo.jpeg">
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+<div class="container">
+    <div class="login-box">
+        
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.jpeg') }}" class="logo-img">
+            <h1><b>Egg<span>zotic</span></b></h1>
+            <p>— WELCOME ADMIN —</p>
+            <p style="color: lightslategray; font-size: small;">Securely access your dashboard to manage operations, track performance and control the system</p>
+        </div>
+
+        <form method="POST" action="/">
+            
+            <div class="input-box">
+                <!--<span class="icon">👤</span>-->
+                <input type="text" name="username" placeholder="Enter your Username" required>
+            </div>
+
+            <div class="input-box">
+                <!--<span class="icon">🔒</span>--->
+                <input type="password" name="password" placeholder="Enter your Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">LOGIN</button>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}Menu & Pricing{% endblock %}
+
+{% block content %}
+<div class="menudiv1">
+    <div class="menudiv2">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h2>Menu & Pricing</h2>
+            <p>Manage your cafe menu items and pricing</p>
+            <hr>
+        </div>
+    <!-- Add Item Section -->
+    <div class="formdiv">
+        <h3>Add New Item</h3>
+        <form action="{{ url_for('menu.add_item') }}" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Item Name</label>
+                <input name="name" type="text" placeholder="Enter item name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select name="category" required>
+                    <option value="">Select category</option>
+                    <option>Beverages</option>
+                    <option>Snacks</option>
+                    <option>Meals</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input name="price" type="number" step="0.01" placeholder="Enter price" required>
+            </div>
+
+            <div class="form-group form-buttons">
+                <button type="submit" class="addmenu">+ Add Item</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="menudiv3">
+        <!-- Menu List -->
+    <div class="formdiv">
+        <div class="table-header">
+            <h2>Menu List</h2>
+            
+            <form method="GET" action="/menu" class="table-controls">
+            <div class="table-controls">
+
+                <select name="category" onchange="this.form.submit()">
+                    <option value="All">All Categories</option>
+
+                    <option value="Beverages"
+                    {% if selected_category == "Beverages" %}selected{% endif %}>Beverages</option>
+
+                    <option value="Snacks"
+                    {% if selected_category == "Snacks" %}selected{% endif %}>Snacks</option>
+
+                    <option value="Meals"
+                    {% if selected_category == "Meals" %}selected{% endif %}>Meals</option>
+                </select>
+                <div class="subControll">
+                <input type="text" name="search" placeholder="Search item..." value="{{ search }}">
+                <button type="submit">Search</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="containerScroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Menu ID</th>
+                    <th>Menu Name</th>
+                    <th>Category</th>
+                    <th>Price (₹)</th>
+                    <th>Delete Menu</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="5">
+                        {% if note %}
+                        <p style="color: red; text-align: center; font-weight: bolder;">{{ note }}</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td>1</td>
+                    <td>Masala Tea</td>
+                    <td>Beverages</td>
+                    <td>10.00</td>
+                    <td>
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Cappuccino</td>
+                    <td>Beverages</td>
+                    <td>60.00</td>
+                    <td>
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Cold Coffee</td>
+                    <td>Beverages</td>
+                    <td>70.00</td>
+                    <td>
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>-->
+                {% for item in items %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>
+                        <a href="/delete_item/{{ item[0] }}" style="text-decoration: none;"
+                        onclick="return confirm('Are you sure you want to delete this menu item?')">
+                            <button class="delete">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+</div>
+{% if message %}
+<script>
+    alert("{{ message }}");
+</script>
+{% endif %}
+{% endblock %}

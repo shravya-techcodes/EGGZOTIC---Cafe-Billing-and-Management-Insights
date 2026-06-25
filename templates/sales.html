@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Eggzotic-Sales{% endblock %}
+{% block content %}
+<div class="salesmainDiv">
+        <div class="page-header">
+            <h2>Sales Analytics</h2>
+            <p>Track sales trends through clear bar visuals</p>
+            <hr>
+        </div>
+        <!--<div class="top-sectionSales">
+            <div class="period-box">
+                <label>Select Period</label>
+                <select id="period-select">
+                    <option>Daily</option>
+                    <option>Monthly</option>
+                    <option>Yearly</option>
+                </select>
+            </div>
+
+            <div class="date-box">
+                <input type="date" id="sales-date">
+            </div>
+        </div>-->
+        <!-- Chart Section -->
+        <div class="analyticsSection">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2>Sales Overview</h2>
+                </div>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="insight-container">
+                <div class="insight-card">
+                    <h4>Daily Sales</h4>
+                    <p class="sales-amount">₹{{ daily_sales }}</p>
+                    {% if daily_sales > 1000 %}
+                        <span class="success-msg">
+                            🎉 Great! Daily sales crossed ₹1000
+                        </span>
+                    {% else %}
+                        <span class="warning-msg">
+                            ⚠ Daily sales below ₹1000
+                        </span>
+                    {% endif %}
+                </div>
+                <div class="insight-card">
+                    <h4>Monthly Sales</h4>
+                    <p class="sales-amount">₹{{ monthly_sales }}</p>
+                    {% if monthly_sales > 25000 %}
+                        <span class="success-msg">
+                            🎉 Great! Daily sales crossed ₹25000
+                        </span>
+                    {% else %}
+                        <span class="warning-msg">
+                            ⚠ Daily sales below ₹25000
+                        </span>
+                    {% endif %}
+                </div>
+                <div class="insight-card">
+                    <h4>Yearly Sales</h4>
+                    <p class="sales-amount">₹{{ yearly_sales }}</p>
+                    {% if yearly_sales > 300000 %}
+                        <span class="success-msg">
+                            🎉 Great! Daily sales crossed ₹300000
+                        </span>
+                    {% else %}
+                        <span class="warning-msg">
+                            ⚠ Daily sales below ₹300000
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const chartLabels = JSON.parse('{{ chart_labels | tojson | safe }}');
+    const chartTotals = JSON.parse('{{ chart_totals | tojson | safe }}');
+
+    console.log(chartLabels);
+    console.log(chartTotals);
+</script>
+
+<script src="{{ url_for('static', filename='sales.js') }}"></script>
+
+{% endblock %}

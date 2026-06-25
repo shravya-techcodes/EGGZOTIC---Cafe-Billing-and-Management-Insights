@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}Eggzotic-Billing{% endblock %}
+{% block content %}
+<div class="containerBill">
+    <h2 style="margin-left: 38%;">EGGZOTIC BILLING</h2>
+    <hr>
+    <!---------TOP BAR------------->
+    <div class="billing-top">
+        <form method="GET" action="/billing" class="table-controls">
+        <div class="table-controls">
+            <div class="subControll">
+            <input type="text" name="search" placeholder="Search items..."  value="{{ search }}">
+            <button type="submit">Search</button>
+            </div>
+            <select name="category" onchange="this.form.submit()">
+                    <option value="All">All Categories</option>
+
+                    <option value="Beverages"
+                    {% if selected_category == "Beverages" %}selected{% endif %}>Beverages</option>
+
+                    <option value="Snacks"
+                    {% if selected_category == "Snacks" %}selected{% endif %}>Snacks</option>
+
+                    <option value="Meals"
+                    {% if selected_category == "Meals" %}selected{% endif %}>Meals</option>
+            </select>
+            <!--<button class="new-order-btn">+ New Order</button>-->
+        </div>
+        </form>
+        <div class="date-time" id="date-time">4 May 2025 | 11:45 AM</div>
+    </div>
+    <div class="billing-container"> <!--main-->
+     <!----------MENU ITEMS --------------------->
+    <div class="menu-section">
+        <h3>Menu Items<hr></h3>
+        <div class="menu-grid">
+            {% if message %}
+                <p style="color: red; text-align: center; font-weight: bolder;">{{ message }}</p>
+            {% endif %}
+                <!-- CARD -->
+            <!---<div class="itemenu-card">
+                <h4>Coffee </h4>
+                <p>Beverage</p>
+                <h5>₹80</h5>
+                <button class="add-btnn" data-name="Coffee" data-price="80">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Cappuccino </h4>
+                <p>Beverage</p>
+                <h5>₹110</h5>
+                <button class="add-btnn" data-name="Cappuccino" data-price="110">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Egg Burji</h4>
+                <p>Snacks</p>
+                <h5>₹120</h5>
+                <button class="add-btnn" data-name="Egg Burji" data-price="120">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Veg Burger</h4>
+                <p>Snacks</p>
+                <h5>₹120</h5>
+                <button class="add-btnn" data-name="Veg Burger" data-price="120">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Biriyani</h4>
+                <p>Meals</p>
+                <h5>₹280</h5>
+                <button class="add-btnn" data-name="Biriyani" data-price="280">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Pizza</h4>
+                <p>Snacks</p>
+                <h5>₹130</h5>
+                <button class="add-btnn" data-name="Pizza" data-price="130">Add</button>
+            </div>
+
+            <div class="itemenu-card">
+                <h4>Fried Rice</h4>
+                <p>Meals</p>
+                <h5>₹140</h5>
+                <button class="add-btnn" data-name="Fried Rice" data-price="140">Add</button>
+            </div>--->
+
+            {% for item in items %}
+            <div class="itemenu-card">
+                <h4>{{ item[1] }}</h4>
+                <p>{{ item[2] }}</p>
+                <h5>₹{{ item[3] }}</h5>
+                <button class="add-btnn" data-name="{{ item[1] }}" data-category="{{ item[2] }}" data-price="{{ item[3] }}">Add</button>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- BILL SECTION -->
+        <div class="bill-section">
+            <div class="bill-header">
+                <h2>Current Bill</h2>
+                <!--<button class="clear-btn">Clear Cart</button>-->
+            </div>
+            <!-------------- TABLE -->
+            <div class="billScroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+
+                <tbody id="cart-items">
+                    <tr>
+                        <td colspan="4" class="empty-cart" style="text-align: center;">Your cart is empty </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <!---------------------- TOTALS --------->
+            <div class="bill-total">
+
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+
+                <div class="total-row">
+                    <span>Tax (5%)</span>
+                    <span id="tax">₹0.00</span>
+                </div>
+
+                <div class="grand-total">
+                    <span>Grand Total</span>
+                    <span id="grand-total">₹0.00</span>
+                </div>
+
+            </div>
+            <!-- BUTTONS -->
+            <div class="bill-buttons">
+                <button class="clear-cart" id="clear-cart-btn">Clear Cart</button>
+                <button class="generate-btn" id="generate-bill">Generate Bill</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="receipt-modal" id="receipt-modal">
+    <div class="receipt-content">
+        <h2>EGGZOTIC</h2>
+        <hr>
+        <p class="receipt-date-time">
+            <span id="receipt-date"></span>
+            <span id="receipt-time"></span>
+        </p>
+        <hr>
+        <div class="billprintScroll">
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="receipt-items"></tbody>
+        </table>
+        </div>
+        <hr>
+        <div class="receipt-total">
+            <p>Subtotal : <span id="receipt-subtotal"></span></p>
+            <p>Tax : <span id="receipt-tax"></span></p>
+            <h3>Total : <span id="receipt-grandtotal"></span></h3>
+        </div>
+        <hr>
+        <p class="thank-you">Thank You! Visit Again</p>
+        <hr>
+        <button class="billPrint" id="print-bill-btn">Print Bill</button>
+        <button id="close-receipt-btn">Close</button>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='billing.js') }}"></script>
+{% endblock %}
