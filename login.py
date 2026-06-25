@@ -22,7 +22,7 @@ def login():
         user = cursor.execute("SELECT * FROM login WHERE username=? AND password = ?", (username, password)).fetchone()
 
         conn.close() 
- 
+# login validation 
         if user: 
             session['login'] = username 
             return redirect(url_for('dashboard.dashboard'))
