@@ -11,4 +11,4 @@ Order Management,
 Billing System,
 Sales Report.
 
-TECHNOLOGIES USED: HTML, CSS, JavaScript, Python, Flask, SQLite
+TECHNOLOGIES USED: HTML, CSS, JavaScript, Python, Flask, SQLite.
