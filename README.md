@@ -15,20 +15,14 @@ Sales Report.
 HTML, CSS, JavaScript, Python, Flask, SQLite.
 
 ### Screenshots
-Login Page
-![Login](Screenshots/login_page.png)
+Login Page(Screenshots/login_page.png)
 
-Dashboard Page
-![Dashboard](Screenshots/dashboard_page.png)
+Dashboard Page(Screenshots/dashboard_page.png)
 
-Menu & Pricing Page
-![Menu&Price](Screenshots/menu_page.png)
+Menu & Pricing Page(Screenshots/menu_page.png)
 
-Billing Page
-![Billing](Screenshots/billing_page.png)
+Billing Page(Screenshots/billing_page.png)
 
-Expenses Page
-![Expenses](Screenshots/expense_page.png)
+Expenses Page(Screenshots/expense_page.png)
 
-Sales Overview
-![Sales](Screenshots/sales_overview.png)
+Sales Overview(Screenshots/sales_overview.png)
