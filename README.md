@@ -4,6 +4,9 @@ This System developed to streamline the operations of cafe by automating billing
 It enables the cafe owner or admin to manage billing, monitor sales, and gain useful insights. The System is specifically designed for the admin module and is intended for use by the Cafe Owner, allowing complete control over operations, monitoring, and decision-making.
 Overall, the purpose of this project is to improve operational efficiency, reduce manual workload, and help the cafe owner make informed business decisions based on accurate data.
 
+**DEMO:** https://eggzotic-cafe-billing-and-management.onrender.com
+---
+
 ### FEATURES:
 User Authentication,
 Menu Management,
