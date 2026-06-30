@@ -9,8 +9,6 @@ window.onload = function () {
                 datasets: [{
                     label: "Sales Amount",
                     data: chartTotals,
-                    //backgroundColor: '#ff6600',
-                    //borderColor: '#cc5200',
                     borderWidth: 1
                 }]
             },

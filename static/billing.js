@@ -2,6 +2,7 @@
 const addButtons = document.querySelectorAll(".add-btnn");
 
 const cartItems = document.getElementById("cart-items");
+const mobileCart = document.getElementById("mobile-cart");
 
 const dateTime =document.getElementById("date-time");
 
@@ -73,6 +74,7 @@ function addToCart(name, category, price){
 
 function displayCart(){
     cartItems.innerHTML = "";
+    mobileCart.innerHTML = "";
     if(cart.length === 0){  
     cartItems.innerHTML = `
 
@@ -83,6 +85,7 @@ function displayCart(){
         </tr>
 
     `;
+    mobileCart.innerHTML = `<div class="empty-cart">Your cart is empty</div>`;
 
     subtotalElement.innerText = "₹0.00";
     taxElement.innerText = "₹0.00";
@@ -117,6 +120,22 @@ function displayCart(){
             </tr>
 
         `;
+        mobileCart.innerHTML += `
+        <div class="mobile-cart-card">
+            <h3>${item.name}</h3>
+            <p><strong>Price :</strong> ₹${item.price}</p>
+            <div class="mobile-qty">
+                <span><strong>Quantity</strong></span>
+                <div class="qty-box">
+                    <button onclick="decreaseQty('${item.name}')">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="increaseQty('${item.name}')">+</button>
+                </div>
+            </div>
+            <p><strong>Total :</strong> ₹${item.price * item.quantity}</p>
+            <button class="remove-btn" onclick="if(confirm('Are you sure?')) removeItem('${item.name}')"> Remove </button>
+        </div>
+    `;
     });
 
 
@@ -232,3 +251,4 @@ document.getElementById("print-bill-btn").addEventListener("click", function() {
 });
 
 displayCart();
+window.addEventListener("resize", displayCart);

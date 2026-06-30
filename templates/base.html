@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Eggzotic{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="static/logo.jpeg">
@@ -15,6 +16,7 @@
         <div class="title nav">EGGZOTIC</div>
         <div class="settings">
             <!---<a href="#"><i class="fa-solid fa-gears"></i>SETTINGS</a>-->
+            <i class="fa-solid fa-bars menu-toggle"></i>
             <a href="{{url_for('login.logout')}}"><i class="fa-solid fa-user"></i>LOGOUT</a>
         </div>
     </div>
@@ -36,10 +38,25 @@
     <div class="bottom">
         <hr>
         <!--<li><a href="#"><i class="fas fa-robot"></i> Eggzotic Bot</a></li>-->
+        <div class="mobile-logout">
+            <a href="{{url_for('login.logout')}}"><i class="fa-solid fa-user"></i>Logout</a>
+        </div>
     </div>
     </div>
     <div class="middleContainer">
         {% block content %}{% endblock %}
     </div>
     {% block extra_js %}{% endblock %}
+    <script>
+
+        const menu=document.querySelector(".menu-toggle");
+        const sidebar=document.querySelector(".sidebar");
+
+        menu.addEventListener("click",()=>{
+
+            sidebar.classList.toggle("active");
+
+        });
+
+    </script>
 </body>

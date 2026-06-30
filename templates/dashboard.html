@@ -77,6 +77,32 @@
                 {% endfor %}
         </tbody>
     </table>
+    <!--MEDIA-->
+    <div class="mobile-orders">
+        
+    {% for order in recent_orders %}
+    <div class="order-card">
+        <div class="order-header">
+            <span class="order-id">#{{ loop.index }}</span>
+            <span class="order-price">₹{{ order[4] * order[3] }}</span>
+        </div>
+
+        <h3>{{ order[1] }}</h3>
+
+        <p><strong>Category:</strong> {{ order[2] }}</p>
+        <p><strong>Quantity:</strong> {{ order[3] }}</p>
+
+        <div class="order-footer">
+            <span>{{ order[5].split(' ')[0] }}</span>
+
+            <span>
+                {{ order[5][11:13]|int % 12 if order[5][11:13]|int % 12 != 0 else 12 }}:{{ order[5][14:16] }}
+                {{ 'PM' if order[5][11:13]|int >= 12 else 'AM' }}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
     </div>
     </div>
     <div class="container2">
@@ -99,6 +125,27 @@
             {% endfor %}
         </tbody>
     </table>
+    <!--media-->
+    <div class="mobile-top-selling">
+
+    {% for item in top_items %}
+
+    <div class="top-item-card">
+
+        <div class="rank">
+            {{ loop.index }}
+        </div>
+
+        <div class="item-details">
+            <h3>{{ item[0] }}</h3>
+            <p>Quantity Sold : {{ item[1] }}</p>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    </div>
     </div>
     </div>
 </div>
